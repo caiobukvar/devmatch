@@ -1,9 +1,14 @@
 import './styles.css';
 import '../../styles/form.css';
 import { Link } from 'react-router-dom';
-import Copyright from '../../components/Copyright';
+import { useState } from 'react';
+import Copyright from '../../components/Copyright/Copyright.js';
+import InputPassword from '../../components/InputPassword/InputPassword';
 
 function SignUp() {
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
     return (
         <div className="container-form">
             <form className="form form-sign-up">
@@ -21,10 +26,12 @@ function SignUp() {
                             <label htmlFor="cep">CEP</label>
                             <input id="cep" type="text" placeholder="Digite seu CEP" />
                         </div>
-                        <div className="flex-column">
-                            <label htmlFor="email">E-mail</label>
-                            <input id="email" type="text" placeholder="Digite seu e-mail" />
-                        </div>
+                        <InputPassword
+                            label="Senha"
+                            placeholder="Digite sua senha"
+                            value={password}
+                            setValue={setPassword}
+                        />
                     </div>
                     <div>
                         <div className="flex-column">
@@ -32,13 +39,15 @@ function SignUp() {
                             <input id="city" type="text" placeholder="Digite sua cidade" />
                         </div>
                         <div className="flex-column">
-                            <label htmlFor="password">Senha</label>
-                            <input id="password" type="password" placeholder="Digite sua senha" />
+                            <label htmlFor="email">E-mail</label>
+                            <input id="email" type="text" placeholder="Digite seu e-mail" />
                         </div>
-                        <div className="flex-column">
-                            <label htmlFor="confirmPassword">Confirme a senha</label>
-                            <input id="confirmPassword" type="password" placeholder="Digite sua senha novamente" />
-                        </div>
+                        <InputPassword
+                            label="Confirme sua senha"
+                            placeholder="Digite sua senha novamente"
+                            value={confirmPassword}
+                            setValue={setConfirmPassword}
+                        />
                     </div>
                 </div>
                 <button className="btn-dark-blue items-center content-center">Cadastre-se</button>

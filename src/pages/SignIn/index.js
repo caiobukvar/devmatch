@@ -1,9 +1,13 @@
 import './styles.css';
 import '../../styles/form.css';
 import { Link } from 'react-router-dom';
-import Copyright from '../../components/Copyright';
+import { useState } from 'react';
+import Copyright from '../../components/Copyright/Copyright.js';
+import InputPassword from '../../components/InputPassword/InputPassword';
 
 function SignIn() {
+    const [password, setPassword] = useState('');
+
     return (
         <div className="container-form">
             <form className="form form-sign-in">
@@ -16,9 +20,14 @@ function SignIn() {
                         <label htmlFor="email">E-mail</label>
                         <input id="email" type="text" placeholder="Digite seu e-mail" />
                     </div>
-                    <div className="flex-column">
-                        <label htmlFor="password">Senha</label>
-                        <input id="password" type="text" placeholder="Digite sua senha" />
+                    <div className="flex-column input-password">
+
+                        <InputPassword
+                            label="Senha"
+                            placeholder="Digite sua senha"
+                            value={password}
+                            setValue={setPassword}
+                        />
                     </div>
                     <button className="btn-dark-blue">Entrar</button>
                     <div className="flex-row items-center">
