@@ -1,3 +1,11 @@
+body {
+    background-color: #1b1a34;
+    background-image: url('../assets/background.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 70%;
+}
+
 .container-form {
     display: flex;
     align-items: center;
@@ -19,10 +27,14 @@ h1 {
     font-size: 48px;
 }
 
-input {
+label {
     margin-bottom: 5px;
     font-size: 18px;
     font-weight: bold;
+}
+
+input {
+    margin-bottom: 30px;
 }
 
 a {

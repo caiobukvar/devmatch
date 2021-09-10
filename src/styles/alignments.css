@@ -14,3 +14,7 @@
 .items-center {
     align-items: center;
 }
+
+.gap-sm {
+    gap: 20px;
+}
