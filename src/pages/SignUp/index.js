@@ -1,11 +1,19 @@
 import './styles.css';
 import '../../styles/form.css';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Copyright from '../../components/Copyright/Copyright.js';
 import InputPassword from '../../components/InputPassword/InputPassword';
+import { getCityByCEP } from '../../services/viaCEP';
 
 function SignUp() {
+
+
+
+    useEffect(() => {
+        getCityByCEP('19026750');
+    }, []);
+
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [cep, setCep] = useState('');
