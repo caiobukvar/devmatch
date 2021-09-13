@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react';
 import Copyright from '../../components/Copyright/Copyright.js';
 import InputPassword from '../../components/InputPassword/InputPassword';
 import { getCityByCEP } from '../../services/viaCEP';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 function SignUp() {
     const [password, setPassword] = useState('');
@@ -14,10 +16,25 @@ function SignUp() {
 
     async function loadCityByCEP(myCep) {
         const cityByCep = await getCityByCEP(myCep);
+        if (!cityByCep) {
+            toast.error("CEP inválido!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true
+            });
+            return;
+        }
         setCity(cityByCep);
     }
 
     useEffect(() => {
+        //loop para apagar ao autocompletar a cidade
+        if (cep.length < 9 && city.length < 0) {
+            setCity("");
+        }
+
         if (cep.indexOf('-') !== -1) {
             if (cep.length === 9) {
                 loadCityByCEP(cep);
@@ -51,6 +68,7 @@ function SignUp() {
                                 type="text"
                                 placeholder="Digite seu CEP"
                                 value={cep}
+                                maxLength={9}
                                 onChange={(e) => setCep(e.target.value)}
                             />
                         </div>
