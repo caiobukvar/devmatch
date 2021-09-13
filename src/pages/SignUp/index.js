@@ -8,6 +8,8 @@ import InputPassword from '../../components/InputPassword/InputPassword';
 function SignUp() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [cep, setCep] = useState('');
+    const [city, setCity] = useState('');
 
     return (
         <div className="container-form">
@@ -24,7 +26,13 @@ function SignUp() {
                         </div>
                         <div className="flex-column">
                             <label htmlFor="cep">CEP</label>
-                            <input id="cep" type="text" placeholder="Digite seu CEP" />
+                            <input
+                                id="cep"
+                                type="text"
+                                placeholder="Digite seu CEP"
+                                value={cep}
+                                onChange={(e) => setCep(e.value.target)}
+                            />
                         </div>
                         <InputPassword
                             label="Senha"
@@ -36,7 +44,13 @@ function SignUp() {
                     <div>
                         <div className="flex-column">
                             <label htmlFor="city">Cidade</label>
-                            <input id="city" type="text" placeholder="Digite sua cidade" />
+                            <input
+                                id="city"
+                                type="text"
+                                placeholder="Digite sua cidade"
+                                value={city}
+                                onChange={(e) => setCity(e.value.target)}
+                            />
                         </div>
                         <div className="flex-column">
                             <label htmlFor="email">E-mail</label>
