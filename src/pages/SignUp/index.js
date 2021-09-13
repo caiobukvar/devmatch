@@ -7,17 +7,29 @@ import InputPassword from '../../components/InputPassword/InputPassword';
 import { getCityByCEP } from '../../services/viaCEP';
 
 function SignUp() {
-
-
-
-    useEffect(() => {
-        getCityByCEP('19026750');
-    }, []);
-
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [cep, setCep] = useState('');
     const [city, setCity] = useState('');
+
+    async function loadCityByCEP(myCep) {
+        const cityByCep = await getCityByCEP(myCep);
+        setCity(cityByCep);
+    }
+
+    useEffect(() => {
+        if (cep.indexOf('-') !== -1) {
+            if (cep.length === 9) {
+                loadCityByCEP(cep);
+            }
+            return;
+        }
+
+        if (cep.length === 8) {
+            loadCityByCEP(cep);
+        }
+
+    }, [cep]);
 
     return (
         <div className="container-form">
@@ -39,7 +51,7 @@ function SignUp() {
                                 type="text"
                                 placeholder="Digite seu CEP"
                                 value={cep}
-                                onChange={(e) => setCep(e.value.target)}
+                                onChange={(e) => setCep(e.target.value)}
                             />
                         </div>
                         <InputPassword
@@ -51,18 +63,19 @@ function SignUp() {
                     </div>
                     <div>
                         <div className="flex-column">
+                            <label htmlFor="email">E-mail</label>
+                            <input id="email" type="text" placeholder="Digite seu e-mail" />
+
+                        </div>
+                        <div className="flex-column">
                             <label htmlFor="city">Cidade</label>
                             <input
                                 id="city"
                                 type="text"
                                 placeholder="Digite sua cidade"
                                 value={city}
-                                onChange={(e) => setCity(e.value.target)}
+                                onChange={(e) => setCity(e.target.valuer)}
                             />
-                        </div>
-                        <div className="flex-column">
-                            <label htmlFor="email">E-mail</label>
-                            <input id="email" type="text" placeholder="Digite seu e-mail" />
                         </div>
                         <InputPassword
                             label="Confirme sua senha"
