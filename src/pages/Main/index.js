@@ -1,11 +1,14 @@
 import './styles.css';
+import Profilebar from '../../components/ProfileBar';
+import JobOpportunity from './../../components/JobOpportunity';
 
-function App() {
+function Main() {
   return (
-    <div className="App">
-      <h1>Main</h1>
+    <div className="container-main">
+      <Profilebar />
+      <JobOpportunity />
     </div>
   );
 }
 
-export default App;
+export default Main;

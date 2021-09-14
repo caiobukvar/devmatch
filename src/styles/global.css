@@ -3,6 +3,7 @@
 @import './margins.css';
 @import './texts.css';
 @import './form.css';
+@import './badges.css';
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
