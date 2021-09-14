@@ -40,6 +40,7 @@ function JobOpportunity({
                     ))}
                 </span>
             </div>
+
         </div>
     );
 }

@@ -1,6 +1,7 @@
 import './styles.css';
 import Profilebar from '../../components/ProfileBar';
 import JobOpportunity from './../../components/JobOpportunity';
+import ActionButtons from '../../components/ActionButtons';
 
 function Main() {
   return (
@@ -15,6 +16,7 @@ function Main() {
         salary="5.200,00"
         benefits={['VT', 'VA', 'Plano de saúde', "Gympass", "Auxílio Home Office"]}
       />
+      <ActionButtons />
     </div>
   );
 }
