@@ -9,7 +9,7 @@ function SignIn() {
     const [password, setPassword] = useState('');
 
     return (
-        <div className="container-form">
+        <div className="background-dark-form container-form">
             <form className="form form-sign-in">
                 <div className="text-center mb-lg">
                     <h1>Entrar</h1>
@@ -35,7 +35,7 @@ function SignIn() {
                         <span htmlFor="remember">Lembrar-me</span>
                     </div>
                 </div>
-                <Link to="/recpvery-password" className="my-lg">Esqueceu a senha?</Link>
+                <Link to="/recovery-password" className="my-lg">Esqueceu a senha?</Link>
                 <Copyright />
             </form>
         </div>
