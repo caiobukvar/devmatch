@@ -25,7 +25,7 @@ function ProfileBar() {
     }, [location]);
 
     return (
-        <div className="">
+        <div>
             <img src={open ? CloseIcon : ProfileIcon}
                 alt="Icon"
                 className="icon"

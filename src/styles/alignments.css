@@ -18,3 +18,11 @@
 .gap-sm {
     gap: 20px;
 }
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.align-start {
+    align-self: flex-start;
+}

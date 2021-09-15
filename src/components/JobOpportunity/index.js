@@ -1,5 +1,4 @@
 import './styles.css';
-import Logo from '../../assets/google-logo.svg';
 
 function JobOpportunity({
     img_url,
@@ -22,7 +21,7 @@ function JobOpportunity({
                 <strong>Requisitos</strong>
                 <div className="flex-row">
                     {requirements.map(requirement => (
-                        <div className="badge-blue">
+                        <div className="badge-blue" key={requirement}>
                             {requirement}
                         </div>
                     ))}
@@ -36,7 +35,7 @@ function JobOpportunity({
                 <strong>Salário / Benefícios</strong>
                 <span>
                     R$ {salary} / {benefits.map((item, index) => (
-                        <span>{item} {index + 1 < benefits.length && ', '}</span>
+                        <span key={index}>{item} {index + 1 < benefits.length && ', '}</span>
                     ))}
                 </span>
             </div>
