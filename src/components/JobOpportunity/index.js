@@ -1,4 +1,5 @@
 import './styles.css';
+import Skills from '../../components/Skills';
 
 function JobOpportunity({
     img_url,
@@ -19,13 +20,14 @@ function JobOpportunity({
             </div>
             <div className="details">
                 <strong>Requisitos</strong>
-                <div className="flex-row">
+                <Skills skills={requirements} addButton={false} />
+                {/* <div className="flex-row">
                     {requirements.map(requirement => (
-                        <div className="badge-blue" key={requirement}>
+                        <div className="badge blue" key={requirement}>
                             {requirement}
                         </div>
                     ))}
-                </div>
+                </div> */}
             </div>
             <div className="details">
                 <strong>Senioridade</strong>
