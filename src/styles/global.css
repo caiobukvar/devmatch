@@ -4,6 +4,7 @@
 @import './texts.css';
 @import './form.css';
 @import './badge.css';
+@import './modal.css';
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;

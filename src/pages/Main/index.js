@@ -3,6 +3,7 @@ import Profilebar from '../../components/ProfileBar';
 import JobOpportunity from './../../components/JobOpportunity';
 import ActionButtons from '../../components/ActionButtons';
 
+
 function Main() {
   return (
     <div className="container-main">
